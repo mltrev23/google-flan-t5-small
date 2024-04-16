@@ -23,7 +23,6 @@ def preprocess_examples(examples):
   
   inputs = [prefix + code for code in codes]
   model_inputs = tokenizer(inputs, max_length=max_input_length, padding="max_length", truncation=True)
-  print("----", model_inputs)
 
   # encode the summaries
   labels = tokenizer(docstrings, max_length=max_target_length, padding="max_length", truncation=True).input_ids
@@ -40,8 +39,8 @@ def preprocess_examples(examples):
   return model_inputs
 
 dataset = dataset.map(preprocess_examples, batched=True)
-print(dataset)
-"""
+#print(dataset)
+
 from torch.utils.data import DataLoader
 
 dataset.set_format(type="torch", columns=['input_ids', 'attention_mask', 'labels'])
@@ -55,8 +54,9 @@ print(batch.keys())
 tokenizer.decode(batch['input_ids'][0])
 
 labels = batch['labels'][0]
-tokenizer.decode([label for label in labels if label != -100])
-
+out = tokenizer.decode([label for label in labels if label != -100])
+print(out)
+"""
 
 from transformers import T5ForConditionalGeneration, AdamW, get_linear_schedule_with_warmup
 import pytorch_lightning as pl
