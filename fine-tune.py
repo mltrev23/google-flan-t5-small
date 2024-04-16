@@ -128,7 +128,7 @@ class CodeT5(pl.LightningModule):
 
     def test_dataloader(self):
         return test_dataloader
-    
+"""
 import wandb
 
 wandb.login()
@@ -157,7 +157,7 @@ trainer.fit(model)
 
 save_directory = "." # save in the current working directory, you can change this of course
 model.model.save_pretrained(save_directory)
-"""
+
 from datasets import load_dataset
 
 dataset = load_dataset("code_x_glue_ct_code_to_text", "ruby")
