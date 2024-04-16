@@ -128,9 +128,9 @@ class CodeT5(pl.LightningModule):
 
     def test_dataloader(self):
         return test_dataloader
-"""
-import wandb
 
+import wandb
+"""
 wandb.login()
 model = CodeT5()
 
