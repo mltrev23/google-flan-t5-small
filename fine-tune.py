@@ -149,7 +149,8 @@ early_stop_callback = EarlyStopping(
 )
 lr_monitor = LearningRateMonitor(logging_interval='step')
 
-trainer = Trainer(gpus=1, 
+trainer = Trainer(accelerator='gpu',
+                  devices = 1,
                   default_root_dir="/content/drive/MyDrive/CodeT5/Notebooks/Checkpoints", 
                   logger=wandb_logger, 
                   callbacks=[early_stop_callback, lr_monitor])
