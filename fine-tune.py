@@ -66,7 +66,7 @@ print('-------------------------')
 labels = batch['labels'][0]
 out = tokenizer.decode([label for label in labels if label != -100])
 print(out)
-"""
+
 
 from transformers import T5ForConditionalGeneration, AdamW, get_linear_schedule_with_warmup
 import pytorch_lightning as pl
@@ -157,7 +157,7 @@ trainer.fit(model)
 
 save_directory = "." # save in the current working directory, you can change this of course
 model.model.save_pretrained(save_directory)
-
+"""
 from datasets import load_dataset
 
 dataset = load_dataset("code_x_glue_ct_code_to_text", "ruby")
