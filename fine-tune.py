@@ -61,11 +61,11 @@ print(out)
 """
 
 out = tokenizer.decode(batch['input_ids'][0]) 
-print(out)
-print('-------------------------')
+#print(out)
+#print('-------------------------')
 labels = batch['labels'][0]
 out = tokenizer.decode([label for label in labels if label != -100])
-print(out)
+#print(out)
 
 
 from transformers import T5ForConditionalGeneration, AdamW, get_linear_schedule_with_warmup
@@ -130,10 +130,10 @@ class CodeT5(pl.LightningModule):
         return test_dataloader
 
 import wandb
-"""
+
 wandb.login()
 model = CodeT5()
-
+"""
 from pytorch_lightning import Trainer
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import EarlyStopping, LearningRateMonitor
