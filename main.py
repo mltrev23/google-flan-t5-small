@@ -12,7 +12,7 @@ outputs = model.generate(input_ids)
 print(tokenizer.decode(outputs[0]))
 
 
-task_prefix = "translate English to German: "
+task_prefix = "translate English to Chinese: "
 # use different length sentences to test batching
 sentences = ["The house is wonderful.", "I like to work in NYC."]
 
