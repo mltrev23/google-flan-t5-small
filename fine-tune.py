@@ -50,9 +50,19 @@ test_dataloader = DataLoader(dataset['test'], batch_size=4)
 
 batch = next(iter(train_dataloader))
 print(batch.keys())
+"""
+#all
+out = [tokenizer.decode(outtoken) for outtoken in batch['input_ids']]
+print(out)
+print('-------------------------')
+#labels = batch['labels']
+out = [tokenizer.decode([label for label in labels if label != -100]) for labels in batch['labels']]
+print(out)
+"""
 
-tokenizer.decode(batch['input_ids'][0])
-
+out = tokenizer.decode(batch['input_ids'][0]) 
+print(out)
+print('-------------------------')
 labels = batch['labels'][0]
 out = tokenizer.decode([label for label in labels if label != -100])
 print(out)
